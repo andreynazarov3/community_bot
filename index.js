@@ -35,7 +35,9 @@ app.use(Telegraf.log());
 //
 //===========================
 
-app.start(({ from, message }) => {});
+app.start(({ reply }) => {
+  reply('I am alive, I am alive!');
+});
 
 //===========================
 //
@@ -43,11 +45,15 @@ app.start(({ from, message }) => {});
 //
 //===========================
 
-//===========================
-//
-// BOT ACTIONS IN BASE SCENE (ROOM or OUTSIDE)
-//
-//===========================
+app.on('new_chat_members', ({ reply, message }) => {
+  message.new_chat_members.forEach(user => {
+    reply(`Привет, ${user.username}! Расскажи о себе, чем занимаешься в IT?`);
+  });
+});
+
+app.hears([/привет/gi, /прив/gi], ({ reply, from }) => {
+  reply(`Привет, ${from.username}!`);
+});
 
 //===========================
 //
