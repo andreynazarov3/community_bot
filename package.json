@@ -6,8 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node index.js",
-		"lint": "eslint index.js",
-		"precommit": "lint-staged"
+		"lint": "eslint index.js"
 	},
 	"repository": {
 		"type": "git",
@@ -19,8 +18,16 @@
 		"url": "https://github.com/andreynazarov3/community_bot/issues"
 	},
 	"homepage": "https://github.com/andreynazarov3/community_bot#readme",
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
 	"lint-staged": {
-		"*.js": ["eslint", "git add"]
+		"*.js": [
+			"eslint",
+			"git add"
+		]
 	},
 	"dependencies": {
 		"dotenv": "^7.0.0",
@@ -36,6 +43,8 @@
 		"eslint-plugin-prettier": "^3.0.1",
 		"eslint-plugin-promise": ">=4.0.1",
 		"eslint-plugin-standard": ">=4.0.0",
+		"husky": "^2.3.0",
+		"lint-staged": "^8.1.7",
 		"ngrok": "^3.1.1",
 		"prettier": "^1.16.4"
 	}
