@@ -1,0 +1,42 @@
+{
+	"name": "community_bot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js",
+		"lint": "eslint index.js",
+		"precommit": "lint-staged"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/andreynazarov3/community_bot.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/andreynazarov3/community_bot/issues"
+	},
+	"homepage": "https://github.com/andreynazarov3/community_bot#readme",
+	"lint-staged": {
+		"*.js": ["eslint", "git add"]
+	},
+	"dependencies": {
+		"dotenv": "^7.0.0",
+		"telegraf": "^3.28.0"
+	},
+	"devDependencies": {
+		"babel-eslint": "^10.0.1",
+		"eslint": "^5.15.1",
+		"eslint-config-prettier": "^4.1.0",
+		"eslint-config-standard": ">=12.0.0",
+		"eslint-plugin-import": ">=2.16.0",
+		"eslint-plugin-node": ">=8.0.1",
+		"eslint-plugin-prettier": "^3.0.1",
+		"eslint-plugin-promise": ">=4.0.1",
+		"eslint-plugin-standard": ">=4.0.0",
+		"ngrok": "^3.1.1",
+		"prettier": "^1.16.4"
+	}
+}
