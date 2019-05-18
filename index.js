@@ -45,14 +45,24 @@ app.start(({ reply }) => {
 //
 //===========================
 
+function getName(user) {
+  return user.first_name
+    ? user.first_name
+    : user.last_name
+    ? user.lastname
+    : user.username
+    ? user.username
+    : 'незнакомец';
+}
+
 app.on('new_chat_members', ({ reply, message }) => {
   message.new_chat_members.forEach(user => {
-    reply(`Привет, ${user.username}! Расскажи о себе, чем занимаешься в IT?`);
+    reply(`Привет, ${getName(user)}! Расскажи о себе, чем занимаешься в IT?`);
   });
 });
 
 app.hears([/привет/gi, /прив/gi], ({ reply, from }) => {
-  reply(`Привет, ${from.username}!`);
+  reply(`Привет, ${getName(from)}!`);
 });
 
 //===========================
